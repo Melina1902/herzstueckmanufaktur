@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Was kann ich für Sie tun? – Herzstückmanufaktur</title>
+  <style>
+    :root {
+      --schwarz: #111111;
+      --rot: #8B1A1A;
+      --gold: #8B6914;
+      --weiss: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--schwarz);
+      color: var(--weiss);
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      padding: 24px 16px 60px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    header .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #ccc;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      color: var(--gold);
+      font-size: 18px;
+      margin: 28px 0 12px;
+      border-left: 4px solid var(--rot);
+      padding-left: 10px;
+    }
+
+    .checkbox-gruppe label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #222;
+      cursor: pointer;
+    }
+
+    .checkbox-gruppe label:last-child {
+      border-bottom: none;
+    }
+
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      accent-color: var(--rot);
+      cursor: pointer;
+    }
+
+    .pflichtfeld {
+      margin-top: 12px;
+    }
+
+    .pflichtfeld label {
+      display: block;
+      margin-bottom: 6px;
+      color: #ccc;
+      font-size: 15px;
+    }
+
+    .pflichtfeld input,
+    .pflichtfeld textarea,
+    .pflichtfeld select {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid var(--gold);
+      color: var(--weiss);
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .pflichtfeld textarea {
+      height: 80px;
+      resize: vertical;
+    }
+
+    .hinweis {
+      background: #1a1a1a;
+      border-left: 4px solid var(--gold);
+      padding: 14px;
+      margin: 24px 0;
+      font-size: 15px;
+      color: #ccc;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      margin-top: 32px;
+      padding: 18px;
+      background: var(--rot);
+      color: var(--weiss);
+      font-family: Georgia, serif;
+      font-size: 18px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+
+    button[type="submit"]:active {
+      opacity: 0.85;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Herzstückmanufaktur</div>
+  <p>Virtuelle Assistenz für Handwerk, Einzelhandel & Landwirtschaft</p>
+</header>
+
+<p>Haken Sie einfach an, wobei ich Sie entlasten soll — das hilft mir, ein passendes Angebot zu machen.</p>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="5a808548-9891-4613-b044-b6b0f1b453a0">
+  <input type="hidden" name="redirect" value="https://www.herzstueckmanufaktur.de/danke.html">
+  <input type="hidden" name="subject" value="Neue Kundenanfrage – Herzstückmanufaktur">
+
+  <!-- Pflichtfelder oben -->
+  <h2>Über Sie</h2>
+
+  <div class="pflichtfeld">
+    <label for="name">Ihr Name *</label>
+    <input type="text" id="name" name="name" required placeholder="Vor- und Nachname">
+  </div>
+
+  <div class="pflichtfeld" style="margin-top:16px;">
+    <label for="betrieb">Betrieb / Firma *</label>
+    <input type="text" id="betrieb" name="betrieb" required placeholder="z. B. Tischlerei Müller">
+  </div>
+
+  <div class="pflichtfeld" style="margin-top:16px;">
+    <label for="kontakt">Wie erreiche ich Sie? (Telefon oder Mail) *</label>
+    <input type="text" id="kontakt" name="kontakt" required placeholder="Telefonnummer oder E-Mail">
+  </div>
+
+  <!-- Checkboxen -->
+  <h2>Kommunikation</h2>
+  <div class="checkbox-gruppe">
+    <label><input type="checkbox" name="aufgaben" value="Angebote schreiben"> Angebote schreiben und verschicken</label>
+    <label><input type="checkbox" name="aufgaben" value="Angebote nachfassen"> Angebote nachfassen (nach ein paar Tagen kurz nachhaken)</label>
+    <label><input type="checkbox" name="aufgaben" value="Auftragsbestätigungen"> Auftragsbestätigungen</label>
+    <label><input type="checkbox" name="aufgaben" value="Kundenanfragen beantworten"> Kundenanfragen beantworten (Mail, WhatsApp, Telefon)</label>
+    <label><input type="checkbox" name="aufgaben" value="Reklamationen bearbeiten"> Reklamationen bearbeiten</label>
+    <label><input type="checkbox" name="aufgaben" value="Google-Bewertungen"> Google-Bewertungen beantworten</label>
+    <label><input type="checkbox" name="aufgaben" value="Lieferanten-Korrespondenz"> Lieferanten-Korrespondenz</label>
+    <label><input type="checkbox" name="aufgaben" value="Behörden-Post"> Behörden-Post beantworten</label>
+    <label><input type="checkbox" name="aufgaben" value="Rundschreiben Stammkunden"> Rundschreiben / Serienmail an Stammkunden</label>
+    <label><input type="checkbox" name="aufgaben" value="Abwesenheitsnotizen"> Abwesenheitsnotizen einrichten</label>
+  </div>
+
+  <h2>Buchhaltung & Finanzen</h2>
+  <div class="checkbox-gruppe">
+    <label><input type="checkbox" name="aufgaben" value="Rechnungen schreiben"> Rechnungen schreiben (mit Ihrem Programm oder einer Vorlage)</label>
+    <label><input type="checkbox" name="aufgaben" value="Belege sortieren"> Belege sortieren & digital aufbereiten</label>
+    <label><input type="checkbox" name="aufgaben" value="Steuerberater-Unterlagen"> Unterlagen für den Steuerberater vorbereiten</label>
+    <label><input type="checkbox" name="aufgaben" value="Ausgangsrechnungen kontrollieren"> Ausgangsrechnungen kontrollieren (ob Zahlungen eingegangen sind)</label>
+    <label><input type="checkbox" name="aufgaben" value="Eingangsrechnungen ablegen"> Eingangsrechnungen prüfen und ablegen</label>
+    <label><input type="checkbox" name="aufgaben" value="Lohnabrechnung vorbereiten"> Lohnabrechnung vorbereiten (Stunden sammeln für den Steuerberater)</label>
+    <label><input type="checkbox" name="aufgaben" value="Fahrtenbuch"> Fahrtenbuch führen</label>
+    <label><input type="checkbox" name="aufgaben" value="Bankabgleich"> Bankabgleich (Kontoauszüge zuordnen)</label>
+    <label><input type="checkbox" name="aufgaben" value="Mahnwesen"> Mahnwesen</label>
+    <label><input type="checkbox" name="aufgaben" value="Kassenbuch"> Kassenbuch führen</label>
+  </div>
+  <p style="margin-top:10px; font-size:14px; color:#aaa; font-style:italic;">Für Buchhaltungs-Aufgaben besprechen wir im Erstgespräch kurz, welche Software Sie nutzen.</p>
+
+  <h2>Organisation & Planung</h2>
+  <div class="checkbox-gruppe">
+    <label><input type="checkbox" name="aufgaben" value="Terminkoordination"> Termine koordinieren (Kunden, Mitarbeiter, Lieferanten)</label>
+    <label><input type="checkbox" name="aufgaben" value="Materialbestellungen"> Materialbestellungen (online)</label>
+    <label><input type="checkbox" name="aufgaben" value="Lagerbestand"> Lagerbestand / Materialvorrat im Blick behalten (per Liste oder Tool)</label>
+    <label><input type="checkbox" name="aufgaben" value="Dienstplanung"> Urlaubs- und Dienstplanung</label>
+    <label><input type="checkbox" name="aufgaben" value="Wartungstermine"> Wartungstermine planen (TÜV, Fahrzeuge, Maschinen)</label>
+    <label><input type="checkbox" name="aufgaben" value="Reisen buchen"> Reisen und Übernachtungen buchen</label>
+    <label><input type="checkbox" name="aufgaben" value="Besprechungen vorbereiten"> Besprechungen vorbereiten (Agenda, Protokoll)</label>
+    <label><input type="checkbox" name="aufgaben" value="Checklisten"> Checklisten erstellen für wiederkehrende Abläufe</label>
+    <label><input type="checkbox" name="aufgaben" value="Aufgaben nachverfolgen"> Aufgaben delegieren und nachverfolgen</label>
+  </div>
+
+  <h2>Personal</h2>
+  <div class="checkbox-gruppe">
+    <label><input type="checkbox" name="aufgaben" value="Stundenzettel"> Stundenzettel erfassen</label>
+    <label><input type="checkbox" name="aufgaben" value="Krankmeldungen"> Krankmeldungen und Urlaub dokumentieren</label>
+    <label><input type="checkbox" name="aufgaben" value="Bewerbungen sichten"> Bewerbungen sichten und vorfiltern</label>
+    <label><input type="checkbox" name="aufgaben" value="Stellenanzeigen"> Stellenanzeigen schreiben und schalten (online)</label>
+    <label><input type="checkbox" name="aufgaben" value="Einarbeitung vorbereiten"> Einarbeitung vorbereiten (Checklisten, Unterlagen)</label>
+    <label><input type="checkbox" name="aufgaben" value="Arbeitsverträge"> Arbeitsverträge vorbereiten (Vorlage ausfüllen)</label>
+    <label><input type="checkbox" name="aufgaben" value="Geburtstage Jubiläen"> Mitarbeiter-Geburtstage und Jubiläen im Blick behalten</label>
+    <label><input type="checkbox" name="aufgaben" value="Zeugnisse"> Zeugnisse vorbereiten (Entwurf)</label>
+  </div>
+
+  <h2>Marketing & Außenauftritt</h2>
+  <div class="checkbox-gruppe">
+    <label><input type="checkbox" name="aufgaben" value="Social Media"> Social Media (Facebook, Instagram)</label>
+    <label><input type="checkbox" name="aufgaben" value="Website pflegen"> Website aktuell halten</label>
+    <label><input type="checkbox" name="aufgaben" value="Fotos hochladen"> Fotos nachbearbeiten, beschriften und hochladen</label>
+    <label><input type="checkbox" name="aufgaben" value="Google Unternehmensprofil"> Google-Unternehmensprofil pflegen (Öffnungszeiten, Fotos, Posts)</label>
+    <label><input type="checkbox" name="aufgaben" value="Newsletter"> Newsletter erstellen und verschicken</label>
+    <label><input type="checkbox" name="aufgaben" value="Angebots-Aktionen"> Angebots-Aktionen gestalten (z. B. mit Canva)</label>
+    <label><input type="checkbox" name="aufgaben" value="Bewertungen anfragen"> Kundenbewertungen aktiv anfragen (Nachfass-Mail)</label>
+    <label><input type="checkbox" name="aufgaben" value="Werbeanzeigen"> Werbeanzeigen schalten (Facebook / Instagram Ads)</label>
+  </div>
+
+
+  <!-- Stundenabschätzung -->
+  <h2>Noch eine Frage</h2>
+
+  <div class="pflichtfeld">
+    <label for="stunden">Wie viele Stunden pro Woche schätzen Sie, dass das Büro kostet?</label>
+    <select id="stunden" name="stunden">
+      <option value="">– bitte wählen –</option>
+      <option>Weniger als 2 Stunden</option>
+      <option>2–5 Stunden</option>
+      <option>5–10 Stunden</option>
+      <option>Mehr als 10 Stunden</option>
+      <option>Keine Ahnung</option>
+    </select>
+  </div>
+
+  <div class="pflichtfeld" style="margin-top:16px;">
+    <label for="sonstiges">Noch etwas, das ich wissen sollte?</label>
+    <textarea id="sonstiges" name="sonstiges" placeholder="Optional — alles, was noch wichtig ist."></textarea>
+  </div>
+
+  <div class="hinweis">
+    Ihre Daten werden nur für die Anfrage genutzt und nicht weitergegeben.
+    Ich melde mich innerhalb von 24 Stunden.
+  </div>
+
+  <button type="submit">Anfrage absenden →</button>
+</form>
+
+<footer>
+  <p>Herzstückmanufaktur · Virtuelle Assistenz · info@herzstueckmanufaktur.de</p>
+</footer>
+
+</body>
+</html>

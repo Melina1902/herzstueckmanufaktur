@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danke — Herzstückmanufaktur</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --schwarz: #111111;
+      --weiss:   #ffffff;
+      --gold:    #8B6914;
+      --rot:     #8B1A1A;
+      --rot-h:   #a52020;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--schwarz);
+      color: var(--weiss);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      background: var(--schwarz);
+      padding: 0 2.5rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold);
+    }
+    .logo-nav { display: flex; flex-direction: row; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-nav-hm { font-family: Georgia, serif; font-size: 2.2rem; font-weight: normal; color: var(--weiss); line-height: 1; letter-spacing: 0.04em; align-self: flex-start; margin-top: -0.1rem; }
+    .logo-nav-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-nav-main { font-family: Georgia, serif; font-style: italic; font-size: 1.25rem; color: var(--gold); }
+    .logo-nav-sub { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: #888; }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+    }
+    .danke-box {
+      text-align: center;
+      max-width: 540px;
+    }
+    .danke-tag {
+      display: inline-block;
+      border-left: 4px solid var(--rot);
+      padding-left: 0.8rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--weiss);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    h1 em { color: var(--gold); font-style: italic; }
+    p {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn-rot {
+      display: inline-block;
+      background: var(--rot);
+      color: var(--weiss);
+      padding: 1rem 2.4rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .btn-rot:hover { background: var(--rot-h); }
+
+    footer {
+      background: var(--schwarz);
+      color: #888;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo-nav" href="index.html">
+    <span class="logo-nav-hm"><span>H</span><span style="position:relative; top:0.45rem;">M</span></span>
+    <div class="logo-nav-text">
+      <span class="logo-nav-main">Herzstückmanufaktur</span>
+      <span class="logo-nav-sub">Virtuelle Assistenz</span>
+    </div>
+  </a>
+</nav>
+
+<main>
+  <div class="danke-box">
+    <div class="danke-tag">Nachricht eingegangen</div>
+    <h1>Danke für Deine<br><em>Anfrage.</em></h1>
+    <p>Ich melde mich innerhalb von 24 Stunden bei Dir — damit wir herausfinden, wie ich Dir am besten helfen kann.</p>
+    <a href="index.html" class="btn-rot">← Zurück zur Startseite</a>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Herzstückmanufaktur · Melina Lohmann &nbsp;|&nbsp;
+  <a href="impressum.html">Impressum</a> &nbsp;|&nbsp;
+  <a href="datenschutz.html">Datenschutz</a></p>
+</footer>
+
+</body>
+</html>

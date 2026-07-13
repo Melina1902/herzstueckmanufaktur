@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz — Herzstückmanufaktur</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --schwarz:  #111111;
+      --weiss:    #ffffff;
+      --gold:     #8B6914;
+      --gold-h:   #a87d1a;
+      --rot:      #8B1A1A;
+      --rot-h:    #a52020;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--schwarz);
+      background: var(--weiss);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--schwarz);
+      padding: 0 2.5rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-nav { display: flex; flex-direction: row; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-nav-main {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .logo-nav-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .logo-nav-hm { font-family: Georgia, serif; font-size: 2.2rem; font-weight: normal; color: var(--weiss); line-height: 1; letter-spacing: 0.04em; align-self: flex-start; margin-top: -0.1rem; }
+    .logo-nav-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .nav-cta {
+      background: var(--rot);
+      color: var(--weiss);
+      padding: 0.6rem 1.5rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--rot-h); }
+
+        /* ── LOGO ── */
+    .logo-strip { background: var(--schwarz); text-align: center; padding: 1.5rem; border-bottom: 2px solid var(--gold); }
+    .logo-kreis { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 130px; height: 130px; border-radius: 50%; background: var(--rot); border: 3px solid var(--gold); }
+    .logo-hm { font-family: Georgia, serif; font-size: 2.4rem; color: var(--weiss); line-height: 1; letter-spacing: 0.08em; }
+    .logo-name { font-family: Georgia, serif; font-style: italic; font-size: 0.5rem; color: var(--gold); letter-spacing: 0.06em; margin-top: 0.35rem; text-align: center; padding: 0 0.4rem; }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+    }
+
+    .page-tag {
+      display: inline-block;
+      border-left: 4px solid var(--rot);
+      padding-left: 0.8rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 2.2rem;
+      margin-bottom: 2.5rem;
+      color: var(--schwarz);
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 1.1rem;
+      color: var(--rot);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--rot);
+      padding-left: 0.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--schwarz);
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--schwarz);
+      color: #888;
+      text-align: center;
+      padding: 2rem 2.5rem;
+      font-size: 0.8rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo-nav" href="index-v2.html">
+    <span class="logo-nav-hm"><span>H</span><span style="position:relative; top:0.45rem;">M</span></span>
+    <div class="logo-nav-text">
+      <span class="logo-nav-main">Herzstückmanufaktur</span>
+      <span class="logo-nav-sub">Virtuelle Assistenz</span>
+    </div>
+  </a>
+    <a class="nav-cta" href="index-v2.html">← Zurück</a>
+  </nav>
+  <main>
+    <div class="page-tag">Rechtliches</div>
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>1. Verantwortliche Person</h2>
+    <p>
+      Melina Lohmann<br>
+      An der Felderhalde 5, 88316 Isny im Allgäu<br>
+      E-Mail: <a href="mailto:info@herzstueckmanufaktur.de">info@herzstueckmanufaktur.de</a>
+    </p>
+
+    <h2>2. Hosting</h2>
+    <p>
+      Diese Website wird gehostet bei Netlify, Inc., 512 2nd Street, Suite 200,
+      San Francisco, CA 94107, USA. Beim Abruf der Seite werden technisch
+      notwendige Daten (IP-Adresse, Uhrzeit, aufgerufene Seite) als Server-Logfiles
+      verarbeitet. Weitere Informationen: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">netlify.com/privacy</a>.
+    </p>
+
+    <h2>3. Kontaktformular</h2>
+    <p>
+      Wenn Du das Kontaktformular auf dieser Website nutzt, werden Deine Angaben
+      (Name, E-Mail-Adresse, Betriebsname, Nachricht) über den Dienst Netlify Forms
+      verarbeitet und an meine E-Mail-Adresse weitergeleitet.
+    </p>
+    <p>
+      Die Daten werden ausschließlich zur Bearbeitung Deiner Anfrage verwendet
+      und nicht an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b
+      DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+      Interesse an der Beantwortung von Anfragen).
+    </p>
+    <p>
+      Die Daten werden gelöscht, sobald Deine Anfrage abschließend bearbeitet ist
+      und keine gesetzliche Aufbewahrungspflicht entgegensteht.
+    </p>
+
+    <h2>4. Kontaktaufnahme per E-Mail</h2>
+    <p>
+      Wenn Du mir direkt eine E-Mail sendest, werden Deine Angaben ausschließlich
+      zur Bearbeitung Deiner Anfrage verwendet. Eine Weitergabe an Dritte
+      findet nicht statt.
+    </p>
+
+    <h2>5. Cookies & Tracking</h2>
+    <p>
+      Diese Website verwendet keine Cookies und keine Analyse- oder
+      Tracking-Tools. Es werden keine Daten für Werbezwecke erhoben.
+    </p>
+
+    <h2>6. Deine Rechte</h2>
+    <p>
+      Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung
+      der Verarbeitung Deiner personenbezogenen Daten sowie das Recht auf
+      Datenübertragbarkeit und Widerspruch gegen die Verarbeitung.
+    </p>
+    <p>
+      Für Anfragen wende Dich an:
+      <a href="mailto:info@herzstueckmanufaktur.de">info@herzstueckmanufaktur.de</a>
+    </p>
+    <p>
+      Du hast außerdem das Recht, Beschwerde bei einer
+      Datenschutzaufsichtsbehörde einzulegen.
+    </p>
+
+    <h2>7. Aktualität</h2>
+    <p>Stand: Juni 2026</p>
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 Herzstückmanufaktur · Melina Lohmann &nbsp;|&nbsp;
+      <a href="impressum.html">Impressum</a> &nbsp;|&nbsp;
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+</body>
+</html>

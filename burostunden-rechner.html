@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bürostunden-Rechner — Herzstückmanufaktur</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --schwarz:  #111111;
+      --weiss:    #ffffff;
+      --gold:     #8B6914;
+      --rot:      #8B1A1A;
+      --rot-h:    #a52020;
+      --creme:    #F5EDD8;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--creme);
+      color: var(--schwarz);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--schwarz);
+      padding: 0 2.5rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-nav { display: flex; flex-direction: row; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-nav-hm { font-family: Georgia, serif; font-size: 2.2rem; font-weight: normal; color: var(--weiss); line-height: 1; letter-spacing: 0.04em; align-self: flex-start; margin-top: -0.1rem; }
+    .logo-nav-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-nav-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-nav-main { font-family: Georgia, serif; font-style: italic; font-size: 1.25rem; color: var(--gold); }
+    .logo-nav-sub { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: #888; }
+    .nav-cta {
+      background: var(--rot); color: var(--weiss);
+      padding: 0.6rem 1.5rem; text-decoration: none;
+      font-size: 0.85rem; font-weight: bold; letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--rot-h); }
+
+        /* ── LOGO ── */
+    .logo-strip { background: var(--schwarz); text-align: center; padding: 1.5rem; border-bottom: 2px solid var(--gold); }
+    .logo-kreis { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 130px; height: 130px; border-radius: 50%; background: var(--rot); border: 3px solid var(--gold); }
+    .logo-hm { font-family: Georgia, serif; font-size: 2.4rem; color: var(--weiss); line-height: 1; letter-spacing: 0.08em; }
+    .logo-name { font-family: Georgia, serif; font-style: italic; font-size: 0.5rem; color: var(--gold); letter-spacing: 0.06em; margin-top: 0.35rem; text-align: center; padding: 0 0.4rem; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--schwarz);
+      color: var(--weiss);
+      padding: 4rem 2.5rem 3.5rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+      text-align: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      border-left: 4px solid var(--rot);
+      padding-left: 0.8rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--weiss);
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero p { color: #ccc; font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+
+    /* ── RECHNER ── */
+    .rechner-section {
+      max-width: 100%;
+      margin: 0;
+      padding: 3.5rem 0 4rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+      background: var(--creme);
+    }
+    .rechner-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .input-gruppe {
+      margin-bottom: 2rem;
+    }
+    .input-gruppe label {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rot);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .input-gruppe input[type="range"] {
+      flex: 1;
+      accent-color: var(--rot);
+      height: 4px;
+      cursor: pointer;
+    }
+    .input-wert {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--schwarz);
+      min-width: 80px;
+      text-align: right;
+    }
+
+    /* ── ERGEBNIS ── */
+    .ergebnis {
+      background: var(--schwarz);
+      color: var(--weiss);
+      padding: 2.5rem 2rem;
+      margin-top: 2.5rem;
+      border-left: 7px solid var(--rot);
+      display: none;
+    }
+    .ergebnis.sichtbar { display: block; }
+
+    .ergebnis-zeile {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #333;
+    }
+    .ergebnis-zeile:last-of-type { border-bottom: none; }
+    .ergebnis-label { font-size: 0.9rem; color: #aaa; }
+    .ergebnis-zahl {
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--weiss);
+    }
+    .ergebnis-zahl.highlight { color: var(--gold); font-size: 2rem; }
+
+    .ergebnis-fazit {
+      margin-top: 1.5rem;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #ccc;
+      border-top: 1px solid #333;
+      padding-top: 1.2rem;
+    }
+    .ergebnis-leben {
+      margin-top: 1rem;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--weiss);
+    }
+
+    /* ── CTA ── */
+    .cta-bereich {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .btn-rot {
+      display: inline-block;
+      background: var(--rot);
+      color: var(--weiss);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .btn-rot:hover { background: var(--rot-h); }
+    .cta-sub {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--schwarz);
+      color: #888;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      outline: 3px solid var(--gold);
+      outline-offset: -8px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
+      .nav-cta { padding: 0.5rem 1rem; font-size: 0.78rem; }
+      .rechner-section { padding: 2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo-nav" href="index-v2.html">
+    <span class="logo-nav-hm"><span>H</span><span style="position:relative; top:0.45rem;">M</span></span>
+    <div class="logo-nav-text">
+      <span class="logo-nav-main">Herzstückmanufaktur</span>
+      <span class="logo-nav-sub">Virtuelle Assistenz</span>
+    </div>
+  </a>
+</nav>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Kostenloses Tool</div>
+  <h1>Was kosten Dich Deine<br><em>Bürostunden wirklich?</em></h1>
+  <p>Gib Deinen Stundensatz und Deine Bürostunden ein — und sieh, wieviel Du draußen verlierst.</p>
+</section>
+
+<!-- RECHNER -->
+<section class="rechner-section">
+<div class="rechner-inner">
+
+  <div class="input-gruppe">
+    <label>Dein Stundensatz</label>
+    <div class="input-row">
+      <input type="range" id="stundensatz" min="20" max="200" value="60" step="5" oninput="berechnen()" />
+      <span class="input-wert"><span id="stundensatz-wert">60</span> €</span>
+    </div>
+  </div>
+
+  <div class="input-gruppe">
+    <label>Stunden pro Woche am Schreibtisch</label>
+    <div class="input-row">
+      <input type="range" id="stunden" min="1" max="20" value="5" step="1" oninput="berechnen()" />
+      <span class="input-wert"><span id="stunden-wert">5</span> Std</span>
+    </div>
+  </div>
+
+  <div class="ergebnis sichtbar" id="ergebnis">
+    <div class="ergebnis-zeile">
+      <span class="ergebnis-label">Verlust pro Woche</span>
+      <span class="ergebnis-zahl" id="pro-woche">—</span>
+    </div>
+    <div class="ergebnis-zeile">
+      <span class="ergebnis-label">Verlust pro Monat</span>
+      <span class="ergebnis-zahl highlight" id="pro-monat">—</span>
+    </div>
+    <div class="ergebnis-zeile">
+      <span class="ergebnis-label">Verlust pro Jahr</span>
+      <span class="ergebnis-zahl" id="pro-jahr">—</span>
+    </div>
+    <p class="ergebnis-fazit" id="fazit">—</p>
+    <p class="ergebnis-leben" id="leben">—</p>
+  </div>
+
+  <div class="cta-bereich">
+    <a href="index-v2.html#kontakt" class="btn-rot">Jetzt Erstgespräch buchen →</a>
+    <span class="cta-sub">30 Minuten · kostenlos · unverbindlich</span>
+  </div>
+
+</div></section>
+
+<footer>
+  <p>&copy; 2026 Herzstückmanufaktur · Melina Lohmann &nbsp;|&nbsp;
+  <a href="impressum.html">Impressum</a> &nbsp;|&nbsp;
+  <a href="datenschutz.html">Datenschutz</a></p>
+</footer>
+
+<script>
+  function berechnen() {
+    const satz = parseInt(document.getElementById('stundensatz').value);
+    const std = parseInt(document.getElementById('stunden').value);
+
+    document.getElementById('stundensatz-wert').textContent = satz;
+    document.getElementById('stunden-wert').textContent = std;
+
+    const woche = satz * std;
+    const monat = woche * 4;
+    const jahr  = woche * 52;
+
+    document.getElementById('pro-woche').textContent = woche.toLocaleString('de-DE') + ' €';
+    document.getElementById('pro-monat').textContent = monat.toLocaleString('de-DE') + ' €';
+    document.getElementById('pro-jahr').textContent  = jahr.toLocaleString('de-DE') + ' €';
+
+    document.getElementById('fazit').textContent =
+      'Mit ' + std + ' Bürostunden pro Woche verlierst Du ' +
+      monat.toLocaleString('de-DE') + ' € pro Monat an Umsatz. ' +
+      'Diese Zeit gehört Dir — nicht dem Schreibtisch.';
+
+    const jahrStunden = std * 52;
+    document.getElementById('leben').textContent =
+      'Das sind ' + jahrStunden + ' Stunden im Jahr — ' +
+      'Zeit, die Du nicht draußen warst. Nicht bei der Familie. Nicht gelebt hast.';
+  }
+
+  berechnen();
+</script>
+
+</body>
+</html>

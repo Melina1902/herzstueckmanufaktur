@@ -703,14 +703,22 @@
       <a href="anfrage.html" style="display: inline-block; padding: 0.9rem 2rem; background: var(--rot); color: var(--weiss); text-decoration: none; font-family: Georgia, serif; font-size: 1rem;">Was brauche ich? Jetzt ausfüllen →</a>
     </div>
 
-    <form class="kontakt-form" name="kontakt" method="POST" data-netlify="true" action="/danke.html">
-      <input type="hidden" name="form-name" value="kontakt" />
+    <form class="kontakt-form" method="POST" action="https://api.web3forms.com/submit">
+      <input type="hidden" name="access_key" value="5a808548-9891-4613-b044-b6b0f1b453a0">
+      <input type="hidden" name="redirect" value="https://herzstueckmanufaktur.de/danke.html">
+      <input type="hidden" name="subject" value="Neue Anfrage über die Startseite – Herzstückmanufaktur">
       <input type="text" name="name" placeholder="Dein Name" required />
       <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
       <input type="text" name="betrieb" placeholder="Dein Betrieb (optional)" />
       <textarea name="nachricht" placeholder="Was kann ich für Dich tun?"></textarea>
       <button type="submit" class="btn-gold">Jetzt Erstgespräch anfragen →</button>
     </form>
+      <p style="font-size:0.8rem; color:#999; margin-top:1rem; line-height:1.6;">
+        Deine Angaben werden über Web3Forms an uns übermittelt und ausschließlich zur
+        Bearbeitung Deiner Anfrage verwendet. Weitere Informationen findest Du in unserer
+        <a href="datenschutz.html" style="color:#999; text-decoration:underline;">Datenschutzerklärung</a>.
+      </p>
+    
 
     <a href="mailto:info@herzstueckmanufaktur.de" class="kontakt-mail">info@herzstueckmanufaktur.de</a>
   </div>

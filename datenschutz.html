@@ -36,20 +36,18 @@
       z-index: 100;
     }
     .logo-nav { display: flex; flex-direction: row; align-items: center; gap: 0.75rem; text-decoration: none; }
-    .logo-nav-main {
-      font-family: Georgia, serif;
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--gold);
-      letter-spacing: 0.02em;
-    }
     .logo-nav-sub {
       font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #888;
     }
-    .logo-nav-hm { font-family: Georgia, serif; font-size: 2.2rem; font-weight: normal; color: var(--weiss); line-height: 1; letter-spacing: 0.04em; align-self: flex-start; margin-top: -0.1rem; }
+    /* Monogramm und Schriftzug als getrennte SVG-Dateien, beide aus
+       dem echten Logo. Uebereinandergelegt ist der Schriftzug in
+       Navigationsgroesse unlesbar, nebeneinander traegt er den Namen.
+       Nie in CSS nachbauen, siehe branding.md. */
+    .logo-nav-mono { height: 40px; width: auto; display: block; }
+    .logo-nav-wort { height: 17px; width: auto; display: block; margin-bottom: 3px; }
     .logo-nav-text { display: flex; flex-direction: column; line-height: 1.2; }
     .nav-cta {
       background: var(--rot);
@@ -141,9 +139,9 @@
 
   <nav>
     <a class="logo-nav" href="index-v2.html">
-    <span class="logo-nav-hm"><span>H</span><span style="position:relative; top:0.45rem;">M</span></span>
+    <img src="logo-monogramm-weiss.svg" class="logo-nav-mono" alt="" />
     <div class="logo-nav-text">
-      <span class="logo-nav-main">Herzstückmanufaktur</span>
+      <img src="logo-wortmarke.svg" class="logo-nav-wort" alt="Herzstückmanufaktur" />
       <span class="logo-nav-sub">Virtuelle Assistenz</span>
     </div>
   </a>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#f5edd8" />
+  <meta name="description" content="Herzstückmanufaktur – Entlastung für Ihren Betriebsalltag." />
+  <title>Muss wirklich alles über Ihren Schreibtisch? — Herzstückmanufaktur</title>
+  <style>
+    :root {
+      --creme:      #f5edd8;
+      --creme-hell: #fbf7ec;
+      --braun:      #332b27;
+      --braun-sanft:#655b55;
+      --gold:       #9a741c;
+      --rot:        #7e2525;
+      --linie:      rgba(154, 116, 28, 0.35);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--creme);
+      color: var(--braun);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .seite { width: min(100%, 720px); margin: 0 auto; background: var(--creme-hell); }
+
+    /* Das echte Logo als Datei, nie in CSS nachgebaut. Eine Nachbildung
+       aus Georgia kursiv stand schon einmal in den Anschreiben und
+       entsprach dem Logo nicht — siehe branding.md. */
+    .kopf {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.9rem 1.4rem;
+      border-bottom: 1px solid var(--linie);
+      background: rgba(245, 237, 216, 0.96);
+    }
+    /* Bewusst klein. Wer hier landet, hat die Karte in der Hand und
+       weiß, von wem sie ist — die Frage muss oben stehen, nicht das
+       Logo. */
+    .kopf img { width: 124px; height: auto; display: block; }
+
+    .hero { padding: 2.6rem 1.5rem 2rem; text-align: center; }
+    .zierlinie {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.7rem; margin: 0 auto 1.3rem; color: var(--gold);
+    }
+    .zierlinie::before, .zierlinie::after {
+      content: ""; width: 52px; height: 1px; background: currentColor;
+    }
+    .zierlinie span {
+      width: 7px; height: 7px; border-radius: 50%; background: currentColor;
+    }
+
+    h1, h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    h1 {
+      max-width: 620px; margin-inline: auto;
+      font-size: clamp(1.75rem, 6.4vw, 2.7rem);
+      letter-spacing: -0.02em;
+    }
+    .antwort {
+      margin: 1rem 0 0;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 4.4vw, 1.5rem);
+    }
+    .vorspann {
+      max-width: 34rem; margin: 0.9rem auto 0;
+      color: var(--braun-sanft); font-size: 1rem;
+    }
+
+    .person { padding: 0 1.5rem 2.2rem; text-align: center; }
+
+    /* Name und Rolle stehen im Bild, nicht darunter. Unter dem Foto
+       bildeten sie einen eigenen kleinen Block und rissen die Seite
+       auseinander; im Bild gehören sie sichtbar zur Person. */
+    /* Bewusst schmal. Über die volle Breite war das Hochformat so hoch,
+       dass es die halbe erste Bildschirmseite einnahm. Das Bild soll die
+       Person zeigen, nicht die Seite tragen. */
+    .bildrahmen {
+      position: relative; overflow: hidden;
+      width: min(240px, 68%);
+      border-radius: 10px; margin: 0 auto 1.3rem;
+    }
+    .bildrahmen img { display: block; width: 100%; height: auto; }
+    .bildschrift {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 2rem 0.7rem 0.7rem;
+      /* Weicher Verlauf, damit die Schrift auch auf hellen Stellen im
+         Foto sicher lesbar bleibt. */
+      background: linear-gradient(to bottom,
+                  rgba(35, 29, 26, 0) 0%,
+                  rgba(35, 29, 26, 0.72) 55%,
+                  rgba(35, 29, 26, 0.86) 100%);
+      color: #fbf7ec;
+    }
+    .bildschrift .name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem; font-weight: 700; line-height: 1.2;
+    }
+    .bildschrift .rolle {
+      font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(251, 247, 236, 0.85); margin-top: 0.25rem;
+    }
+    .person p.text {
+      max-width: 34rem; margin: 1.1rem auto 0;
+      text-align: left; color: var(--braun-sanft); font-size: 1rem;
+    }
+    /* Steht allein, wie eine Unterschrift unter den Absatz. */
+    .person p.nachsatz {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic; color: var(--gold);
+    }
+
+    /* Der Block steht auf denselben Kanten wie das Foto darüber:
+       gleicher Randabstand, gleiche Eckenrundung. Vorher lief er über
+       die volle Breite und die Seite hatte zwei verschiedene Kanten. */
+    .bereiche {
+      background: var(--braun); color: var(--creme-hell);
+      margin: 0 1.5rem;
+      padding: 2.2rem 1.1rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .bereiche h2 { font-size: clamp(1.4rem, 5.2vw, 2rem); margin-bottom: 1.4rem; }
+    .bereiche ul { list-style: none; margin: 0; padding: 0; }
+    .bereiche li {
+      border: 1px solid rgba(193, 163, 91, 0.45);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.6rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+    .bereiche .anders {
+      margin: 1.3rem 0 0; color: rgba(251, 247, 236, 0.72); font-size: 0.95rem;
+    }
+
+    .anfangen { padding: 2.6rem 1.5rem 2.2rem; text-align: center; }
+    .label {
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--braun-sanft); margin-bottom: 0.7rem;
+    }
+    .anfangen h2 { font-size: clamp(1.4rem, 5.2vw, 2rem); }
+    .anfangen p.text {
+      max-width: 32rem; margin: 0.9rem auto 1.5rem; color: var(--braun-sanft);
+    }
+    a.knopf {
+      display: block; max-width: 26rem; margin: 0 auto;
+      background: var(--rot); color: #fff; text-decoration: none;
+      padding: 1.05rem 1.2rem; border-radius: 8px;
+      font-size: 1.05rem; font-weight: bold;
+    }
+    .anrufen { margin-top: 1rem; font-size: 0.98rem; }
+
+    .zweitweg {
+      border-top: 1px solid var(--linie);
+      padding: 2.2rem 1.5rem 2.6rem; text-align: center;
+    }
+    .zweitweg h2 { font-size: clamp(1.2rem, 4.4vw, 1.6rem); }
+    .zweitweg p { max-width: 32rem; margin: 0.8rem auto 1.2rem; color: var(--braun-sanft); }
+    a.leise {
+      color: var(--gold); font-weight: bold; text-decoration: none;
+      border-bottom: 1px solid var(--gold); padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--braun); color: rgba(251, 247, 236, 0.75);
+      padding: 1.4rem 1.5rem; text-align: center; font-size: 0.85rem;
+    }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div class="seite">
+
+    <header class="kopf">
+      <img src="logo-freigestellt.png" width="720" height="501"
+           alt="Herzstückmanufaktur" />
+    </header>
+
+    <section class="hero">
+      <div class="zierlinie"><span></span></div>
+      <h1>Muss wirklich alles über Ihren Schreibtisch?</h1>
+      <p class="antwort">Nein. Genau dafür gibt es uns.</p>
+      <p class="vorspann">
+        Wir übernehmen, ordnen und bauen, was fehlt, damit nicht alles an
+        Ihnen hängen bleibt.
+      </p>
+    </section>
+
+    <section class="person">
+      <!-- Vorgeschnitten und auf 100 KB gebracht. Die Seite wird nach
+           einem QR-Scan am Handy geöffnet, oft im Mobilfunknetz. -->
+      <div class="bildrahmen">
+        <img src="mareike-buero.jpg" width="680" height="961"
+             alt="Mareike Lohmann an ihrem Schreibtisch" />
+        <div class="bildschrift">
+          <div class="name">Mareike Lohmann</div>
+          <div class="rolle">Ihre Ansprechpartnerin</div>
+        </div>
+      </div>
+      <!-- Die vier Bereiche standen hier vorher als Aufzählung und
+           kommen zehn Zeilen weiter unten ohnehin noch einmal. An ihrer
+           Stelle steht jetzt ein Bild, das jeder sofort vor sich sieht.
+           Die Wendungen stammen aus Mareikes eigenem Beitrag: der Abend
+           nach einem langen Tag, „aus der Praxis für die Praxis" und
+           „den Rücken frei halten". -->
+      <p class="text">
+        Seit 25 Jahren kenne ich den Alltag in eigenen Betrieben. Ich weiß,
+        wie es sich anfühlt, wenn nach einem langen Tag im Betrieb abends
+        noch der Papierkram wartet.
+      </p>
+      <p class="text">
+        Heute halte ich gemeinsam mit meiner Familie anderen den Rücken
+        frei. Was wir können, kommt nicht vom grünen Tisch, sondern aus
+        eigener Praxis. Wir kennen die Herausforderungen und sprechen
+        dieselbe Sprache.
+      </p>
+      <p class="text nachsatz">
+        Zuverlässig, pragmatisch und ohne großes Gerede.
+      </p>
+    </section>
+
+    <section class="bereiche">
+      <h2>Was darf von Ihrem Schreibtisch?</h2>
+      <ul>
+        <li>Kommunikation &amp; Korrespondenz</li>
+        <li>Vorbereitende Buchhaltung</li>
+        <li>Organisation &amp; Planung</li>
+        <li>Marketing &amp; Außenauftritt</li>
+      </ul>
+      <p class="anders">
+        Oder ist es etwas ganz anderes? Dann schauen wir gemeinsam hin.
+      </p>
+    </section>
+
+    <section class="anfangen">
+      <p class="label">Einfach anfangen</p>
+      <h2>Was bleibt bei Ihnen gerade liegen?</h2>
+      <p class="text">
+        Schreiben Sie mir ein paar Worte. Ich sage Ihnen ehrlich, ob und wie
+        wir Sie entlasten können.
+      </p>
+      <!-- Die Nachricht ist vorformuliert, damit niemand vor einem leeren
+           Feld sitzt und selbst einen Anfang suchen muss. -->
+      <a class="knopf"
+         href="https://wa.me/4917682476993?text=Guten%20Tag%20Frau%20Lohmann%2C%20ich%20habe%20Ihre%20Karte%20bekommen.%20Bei%20mir%20bleibt%20gerade%20Folgendes%20liegen%3A%20">
+        Mareike per WhatsApp schreiben
+      </a>
+      <!-- Bewusst keine Telefonnummer an dieser Stelle. Der erste
+           Kontakt soll schriftlich laufen: Mareike will wissen, worum es
+           geht, bevor sie jemanden am Telefon hat. Die Nummer steht auf
+           der Karte, wer anrufen will, findet sie dort. -->
+    </section>
+
+    <section class="zweitweg">
+      <h2>Lieber erst einmal selbst schauen?</h2>
+      <p>
+        Mit unserem kostenlosen Schreibtisch-Check sehen Sie, wo Ihnen gerade
+        die meiste Zeit verloren geht.
+      </p>
+      <a class="leise" href="schreibtisch-tool.html">Schreibtisch-Check starten →</a>
+    </section>
+
+    <footer>
+      <p style="margin:0">
+        © 2026 Herzstückmanufaktur ·
+        <a href="mailto:info@herzstueckmanufaktur.de">info@herzstueckmanufaktur.de</a>
+      </p>
+      <p style="margin:0.4rem 0 0">
+        <a href="impressum.html">Impressum</a> ·
+        <a href="datenschutz.html">Datenschutz</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
